@@ -27,16 +27,24 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         userswindow.cpp \
-    dbmanager.cpp
+    dbmanager.cpp \
+    aquariumswindow.cpp \
+    registerdialog.cpp
 
 HEADERS += \
         userswindow.h \
-    dbmanager.h
+    dbmanager.h \
+    aquariumswindow.h \
+    registerdialog.h
 
 FORMS += \
-        userswindow.ui
+        userswindow.ui \
+    aquariumswindow.ui \
+    registerdialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES +=

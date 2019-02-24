@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>304</width>
-    <height>131</height>
+    <height>121</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Login</string>
+   <string>Aquarium Manager</string>
   </property>
   <property name="styleSheet">
    <string notr="true">#UsersWindow
@@ -22,7 +22,7 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0" colspan="2">
+    <item row="0" column="0" colspan="3">
      <widget class="QLineEdit" name="userInputEdit">
       <property name="font">
        <font>
@@ -43,7 +43,7 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="0" colspan="2">
+    <item row="1" column="0" colspan="3">
      <widget class="QLineEdit" name="passwordInputEdit">
       <property name="styleSheet">
        <string notr="true">#passwordInputEdit
@@ -68,6 +68,16 @@
      </widget>
     </item>
     <item row="2" column="0">
+     <widget class="QLabel" name="registerLink">
+      <property name="styleSheet">
+       <string notr="true">color: black;</string>
+      </property>
+      <property name="text">
+       <string>&lt;a href=&quot;#&quot;&gt;&lt;span style=&quot; text-decoration: none; color: white;&quot;&gt;Register here!&lt;/span&gt;&lt;/a&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
      <spacer name="horizontalSpacer">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
@@ -80,7 +90,7 @@
       </property>
      </spacer>
     </item>
-    <item row="2" column="1">
+    <item row="2" column="2">
      <widget class="QPushButton" name="loginButton">
       <property name="minimumSize">
        <size>

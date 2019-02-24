@@ -20,13 +20,40 @@ UsersWindow::~UsersWindow()
 void UsersWindow::on_loginButton_clicked()
 {
     DbManager dbManager;
+    std::pair <bool, std::pair<QString, QString>> currentUser = dbManager.getUserInfo(ui->userInputEdit->text());
 
-    if(dbManager.getUserInfo(ui->userInputEdit->text()).first)
+
+    if(currentUser.first) // User has been found.
     {
-        qDebug() << "Will log in.";
+        if(currentUser.second.second == ui->passwordInputEdit->text()) // User and password is correct, we can log in.
+        {
+            aquariumsWindow = new AquariumsWindow();
+            aquariumsWindow->show();
+        }
+        else
+        {
+            // Display an error message about invalid password.
+            QMessageBox passwordErrorMessage;
+            passwordErrorMessage.setText("Invalid password.");
+            passwordErrorMessage.setIcon(QMessageBox::Icon::Critical);
+            passwordErrorMessage.exec();
+        }
     }
     else
     {
-        qDebug() << "User does not exist.";
+        // Display an error message about invalid user.
+        QMessageBox userErrorMessage;
+        userErrorMessage.setText("User not found.");
+        userErrorMessage.setIcon(QMessageBox::Icon::Critical);
+        userErrorMessage.exec();
     }
+}
+
+/*
+ * When the user clicks the link, it displays the register new user window.
+*/
+void UsersWindow::on_registerLink_linkActivated(const QString &link)
+{
+    registerDialog = new RegisterDialog();
+    registerDialog->show();
 }
