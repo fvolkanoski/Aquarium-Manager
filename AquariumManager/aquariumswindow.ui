@@ -6,14 +6,96 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>701</width>
     <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="statusBar">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>701</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#statusBar
+{
+	background-color: qlineargradient(spread:pad, x1:0.517045, 			y1:1, x2:0.517045, y2:0, stop:0 rgba(220, 220, 220, 255), 			stop:0.511364 rgba(230, 230, 230, 255), stop:1 rgba(220, 220, 	220, 255));
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="notificationsIcon">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#notificationsBackground
+{
+	background-color: qlineargradient(spread:pad, x1:0.528409, 			y1:1, x2:0.534091, y2:0, stop:0 rgba(95, 174, 255, 255), stop:		1 rgba(137, 215, 255, 255));
+	border-radius: 12px;
+	margin: 8px;
+	color: white;
+}</string>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="welcomeLabel">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>0</y>
+      <width>161</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Algerian</family>
+      <pointsize>9</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#welcomeLabel
+{
+	margin-right: 2px;
+	color: rgb(84, 84, 84);
+}</string>
+    </property>
+    <property name="text">
+     <string>Welcome back, User!</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+  </widget>
  </widget>
  <resources/>
  <connections/>

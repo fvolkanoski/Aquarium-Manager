@@ -3,7 +3,6 @@
 
 #include <QMainWindow>
 
-#include "dbmanager.h"
 #include "aquariumswindow.h"
 #include "registerdialog.h"
 

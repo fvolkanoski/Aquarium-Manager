@@ -2,6 +2,9 @@
 #define REGISTERDIALOG_H
 
 #include <QDialog>
+#include <QMessageBox>
+
+#include "dbmanager.h"
 
 namespace Ui {
 class RegisterDialog;
@@ -17,6 +20,8 @@ public:
 
 private slots:
     void on_cancelButton_clicked();
+
+    void on_registerButton_clicked();
 
 private:
     Ui::RegisterDialog *ui;

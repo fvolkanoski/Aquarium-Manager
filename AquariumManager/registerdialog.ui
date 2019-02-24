@@ -44,6 +44,12 @@
    </item>
    <item row="1" column="0" colspan="3">
     <widget class="QLineEdit" name="registerPasswordEdit">
+     <property name="font">
+      <font>
+       <family>Calibri Light</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
      <property name="styleSheet">
       <string notr="true">#registerPasswordEdit
 {

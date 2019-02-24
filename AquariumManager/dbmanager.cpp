@@ -56,6 +56,28 @@ std::pair <bool, std::pair <QString, QString>> DbManager::getUserInfo(const QStr
 }
 
 /*
+ * Inserts a user into the database, if the insert has been successfull
+ * returns true, if not returns false.
+*/
+bool DbManager::insertUser(QString user, QString password)
+{
+    QSqlQuery query;
+    query.prepare("INSERT INTO users (user, password) VALUES (:user, :password)");
+    query.bindValue(":user", user);
+    query.bindValue(":password", password);
+
+    if(query.exec())
+    {
+        return true;
+    }
+    else
+    {
+        qDebug() << "Error while inserting a new user into the database: " << query.lastError();
+        return false;
+    }
+}
+
+/*
  * Destructor: Closes the database.
 */
 DbManager::~DbManager()

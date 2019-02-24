@@ -15,3 +15,32 @@ void RegisterDialog::on_cancelButton_clicked()
 {
     RegisterDialog::close();
 }
+
+/*
+ * When the user clicks the Register, we call the dbmanager
+ * to insert a new user into the database.
+*/
+void RegisterDialog::on_registerButton_clicked()
+{
+    // If the fields are blank, do nothing.
+    if(ui->registerUserEdit->text().size() > 0 && ui->registerPasswordEdit->text().size() > 0)
+    {
+        DbManager dbManager;
+
+        // TODO: How do we prevent SQL injection, regex or what...?
+        if(dbManager.insertUser(ui->registerUserEdit->text(), ui->registerPasswordEdit->text()))
+        {
+            QMessageBox registerInfoBox;
+            registerInfoBox.setText("User registered successfully!");
+            registerInfoBox.setIcon(QMessageBox::Icon::Information);
+            registerInfoBox.exec();
+        }
+        else
+        {
+            QMessageBox registerInfoBox;
+            registerInfoBox.setText("Error while registering user, please try again later.");
+            registerInfoBox.setIcon(QMessageBox::Icon::Critical);
+            registerInfoBox.exec();
+        }
+    }
+}
