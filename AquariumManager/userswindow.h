@@ -3,8 +3,11 @@
 
 #include <QMainWindow>
 
-namespace Ui {
-class UsersWindow;
+#include "dbmanager.h"
+
+namespace Ui
+{
+    class UsersWindow;
 }
 
 class UsersWindow : public QMainWindow
@@ -14,6 +17,9 @@ class UsersWindow : public QMainWindow
 public:
     explicit UsersWindow(QWidget *parent = nullptr);
     ~UsersWindow();
+
+private slots:
+    void on_loginButton_clicked();
 
 private:
     Ui::UsersWindow *ui;

@@ -26,10 +26,12 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        userswindow.cpp
+        userswindow.cpp \
+    dbmanager.cpp
 
 HEADERS += \
-        userswindow.h
+        userswindow.h \
+    dbmanager.h
 
 FORMS += \
         userswindow.ui

@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>181</width>
-    <height>231</height>
+    <width>304</width>
+    <height>131</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>UsersWindow</string>
+   <string>Login</string>
   </property>
   <property name="styleSheet">
    <string notr="true">#UsersWindow
@@ -67,65 +67,7 @@
       </property>
      </widget>
     </item>
-    <item row="2" column="0" colspan="2">
-     <widget class="Line" name="line">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="0" colspan="2">
-     <widget class="QLineEdit" name="registerUserInputEdit">
-      <property name="font">
-       <font>
-        <family>Calibri Light</family>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">#registerUserInputEdit
-{
-	border: 1px solid black;
-	border-radius: 5px;
-	padding: 5px;
-}</string>
-      </property>
-      <property name="placeholderText">
-       <string>User</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="0" colspan="2">
-     <widget class="QLineEdit" name="registerPasswordInputEdit">
-      <property name="font">
-       <font>
-        <family>Calibri Light</family>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">#registerPasswordInputEdit
-{
-	border: 1px solid black;
-	border-radius: 5px;
-	padding: 5px;
-}</string>
-      </property>
-      <property name="inputMask">
-       <string/>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="echoMode">
-       <enum>QLineEdit::Password</enum>
-      </property>
-      <property name="placeholderText">
-       <string>Password</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="0">
+    <item row="2" column="0">
      <spacer name="horizontalSpacer">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
@@ -138,8 +80,8 @@
       </property>
      </spacer>
     </item>
-    <item row="5" column="1">
-     <widget class="QPushButton" name="registerButton">
+    <item row="2" column="1">
+     <widget class="QPushButton" name="loginButton">
       <property name="minimumSize">
        <size>
         <width>70</width>
@@ -153,23 +95,23 @@
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">#registerButton
+       <string notr="true">#loginButton
 {
 	border: none;
 	color: white;
 	background-color: rgba(103, 123, 255, 50);
 }
-#registerButton::hover
+#loginButton::hover
 {
 	background-color: rgba(103, 123, 255, 100);
 }
-#registerButton::pressed
+#loginButton::pressed
 {
 	background-color: rgba(103, 123, 255, 255);
 }</string>
       </property>
       <property name="text">
-       <string>Register</string>
+       <string>Login</string>
       </property>
      </widget>
     </item>
