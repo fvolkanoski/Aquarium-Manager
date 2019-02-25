@@ -4,10 +4,6 @@
 AquariumsWindow::AquariumsWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::AquariumsWindow)
 {
     ui->setupUi(this);
-    QMessageBox userHelloMessage;
-    userHelloMessage.setText("Welcome back!");
-    userHelloMessage.setIcon(QMessageBox::Icon::Information);
-    userHelloMessage.exec();
 }
 
 void AquariumsWindow::takeData(QString user)
@@ -18,4 +14,13 @@ void AquariumsWindow::takeData(QString user)
 AquariumsWindow::~AquariumsWindow()
 {
     delete ui;
+}
+
+/*
+ * When the user clicks the logout button, add here the actions
+ * that need to be done before logging out then destroy the main window.
+*/
+void AquariumsWindow::on_label_linkActivated(const QString &link)
+{
+    QApplication::quit();
 }

@@ -16,7 +16,7 @@ public:
     bool insertUser(QString user, QString password);
 private:
     QSqlDatabase m_db;
-    const QString dbPath = "C:/Users/Filip/Desktop/QtProjects/AquariumManager/Aquarium-Manager/AquariumManager/am-db.db";
+    const QString dbPath = "C:/Users/Filip/Desktop/QtProjects/Aquarium-Manager/AquariumManager/am-db.db";
 };
 
 #endif // DBMANAGER_H

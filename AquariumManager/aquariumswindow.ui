@@ -11,10 +11,10 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Aquarium Manager</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="statusBar">
+   <widget class="QLabel" name="notificationsBar">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">#statusBar
+     <string notr="true">#notificationsBar
 {
 	background-color: qlineargradient(spread:pad, x1:0.517045, 			y1:1, x2:0.517045, y2:0, stop:0 rgba(220, 220, 220, 255), 			stop:0.511364 rgba(230, 230, 230, 255), stop:1 rgba(220, 220, 	220, 255));
 }</string>
@@ -95,6 +95,110 @@
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
+   <widget class="QLabel" name="statusBar">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>580</y>
+      <width>701</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#statusBar
+{
+	
+	background-color: rgb(213, 213, 213);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>580</y>
+      <width>41</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;a href=&quot;#&quot; style=&quot;text-decoration: none; color: rgba(95, 174, 255, 255);&quot;&gt;Logout&lt;/a&gt;</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="windowBackground">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>40</y>
+      <width>701</width>
+      <height>541</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#windowBackground
+{
+	
+	background-color: rgb(255, 255, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="statusBarMessage">
+    <property name="geometry">
+     <rect>
+      <x>6</x>
+      <y>580</y>
+      <width>651</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>No new messages.</string>
+    </property>
+   </widget>
+   <widget class="Line" name="statusBarSeparator">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>580</y>
+      <width>51</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="notificationsBarSeparator">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>0</y>
+      <width>41</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <zorder>notificationsBar</zorder>
+   <zorder>notificationsIcon</zorder>
+   <zorder>welcomeLabel</zorder>
+   <zorder>statusBar</zorder>
+   <zorder>label</zorder>
+   <zorder>statusBarMessage</zorder>
+   <zorder>statusBarSeparator</zorder>
+   <zorder>notificationsBarSeparator</zorder>
+   <zorder>windowBackground</zorder>
   </widget>
  </widget>
  <resources/>

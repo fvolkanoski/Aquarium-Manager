@@ -57,5 +57,5 @@ void UsersWindow::on_loginButton_clicked()
 void UsersWindow::on_registerLink_linkActivated(const QString &link)
 {
     registerDialog = new RegisterDialog();
-    registerDialog->show();
+    registerDialog->exec();
 }
