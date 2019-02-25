@@ -29,6 +29,8 @@ void UsersWindow::on_loginButton_clicked()
         {
             aquariumsWindow = new AquariumsWindow();
             aquariumsWindow->show();
+            aquariumsWindow->takeData(currentUser.second.first);
+            UsersWindow::close();
         }
         else
         {

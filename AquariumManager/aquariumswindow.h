@@ -15,6 +15,7 @@ class AquariumsWindow : public QMainWindow
 
 public:
     explicit AquariumsWindow(QWidget *parent = nullptr);
+    void takeData(QString user);
     ~AquariumsWindow();
 
 private:

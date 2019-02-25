@@ -10,6 +10,11 @@ AquariumsWindow::AquariumsWindow(QWidget *parent) : QMainWindow(parent), ui(new 
     userHelloMessage.exec();
 }
 
+void AquariumsWindow::takeData(QString user)
+{
+    ui->welcomeLabel->setText("Welcome back, <b>" + user + "</b>!");
+}
+
 AquariumsWindow::~AquariumsWindow()
 {
     delete ui;

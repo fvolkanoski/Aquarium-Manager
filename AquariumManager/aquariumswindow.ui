@@ -49,7 +49,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">#notificationsBackground
+     <string notr="true">#notificationsIcon
 {
 	background-color: qlineargradient(spread:pad, x1:0.528409, 			y1:1, x2:0.534091, y2:0, stop:0 rgba(95, 174, 255, 255), stop:		1 rgba(137, 215, 255, 255));
 	border-radius: 12px;
@@ -75,7 +75,7 @@
     </property>
     <property name="font">
      <font>
-      <family>Algerian</family>
+      <family>Arial</family>
       <pointsize>9</pointsize>
       <weight>50</weight>
       <bold>false</bold>
@@ -89,7 +89,7 @@
 }</string>
     </property>
     <property name="text">
-     <string>Welcome back, User!</string>
+     <string>Welcome back, &lt;b&gt;User&lt;/b&gt;!</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
