@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QMessageBox>
+#include <QCryptographicHash>
 
 #include "dbmanager.h"
 

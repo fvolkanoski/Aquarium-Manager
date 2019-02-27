@@ -27,8 +27,9 @@ void RegisterDialog::on_registerButton_clicked()
     {
         DbManager dbManager;
 
+        // Hash the password using sha256, and write the hash to the db.
         // TODO: How do we prevent SQL injection, regex or what...?
-        if(dbManager.insertUser(ui->registerUserEdit->text(), ui->registerPasswordEdit->text()))
+        if(dbManager.insertUser(ui->registerUserEdit->text(), QString(QCryptographicHash::hash((ui->registerPasswordEdit->text().toLocal8Bit()),QCryptographicHash::Sha256))))
         {
             QMessageBox registerInfoBox;
             registerInfoBox.setText("User registered successfully!");

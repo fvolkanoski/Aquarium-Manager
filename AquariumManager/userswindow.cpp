@@ -25,7 +25,7 @@ void UsersWindow::on_loginButton_clicked()
 
     if(currentUser.first) // User has been found.
     {
-        if(currentUser.second.second == ui->passwordInputEdit->text()) // User and password is correct, we can log in.
+        if(currentUser.second.second == QString(QCryptographicHash::hash((ui->passwordInputEdit->text().toLocal8Bit()), QCryptographicHash::Sha256))) // User and password is correct, we can log in.
         {
             aquariumsWindow = new AquariumsWindow();
             aquariumsWindow->show();
