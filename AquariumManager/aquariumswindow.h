@@ -21,6 +21,8 @@ public:
 private slots:
     void on_label_linkActivated(const QString &link);
 
+    void on_aquariumsTabs_tabBarClicked(int index);
+
 private:
     Ui::AquariumsWindow *ui;
 };

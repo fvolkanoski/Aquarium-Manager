@@ -6,9 +6,14 @@ AquariumsWindow::AquariumsWindow(QWidget *parent) : QMainWindow(parent), ui(new 
     ui->setupUi(this);
 }
 
+/*
+ * After the initialization of the form, this is the first function that
+ * is called.
+*/
 void AquariumsWindow::takeData(QString user)
 {
     ui->welcomeLabel->setText("Welcome back, <b>" + user + "</b>!");
+    // Get aquariums data.
 }
 
 AquariumsWindow::~AquariumsWindow()
@@ -23,4 +28,9 @@ AquariumsWindow::~AquariumsWindow()
 void AquariumsWindow::on_label_linkActivated(const QString &link)
 {
     QApplication::quit();
+}
+
+void AquariumsWindow::on_aquariumsTabs_tabBarClicked(int index)
+{
+    // Get info about aquarium when the user selects it.
 }

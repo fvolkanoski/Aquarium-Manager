@@ -190,6 +190,24 @@
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
+   <widget class="QTabWidget" name="aquariumsTabs">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>50</y>
+      <width>681</width>
+      <height>521</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string/>
+     </attribute>
+    </widget>
+   </widget>
    <zorder>notificationsBar</zorder>
    <zorder>notificationsIcon</zorder>
    <zorder>welcomeLabel</zorder>
@@ -199,6 +217,7 @@
    <zorder>statusBarSeparator</zorder>
    <zorder>notificationsBarSeparator</zorder>
    <zorder>windowBackground</zorder>
+   <zorder>aquariumsTabs</zorder>
   </widget>
  </widget>
  <resources/>

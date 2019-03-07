@@ -78,6 +78,14 @@ bool DbManager::insertUser(QString user, QString password)
 }
 
 /*
+ * Returns the names of the aquariums that the user has stored.
+*/
+std::vector <std::string> DbManager::getUserAquariums(QString &user)
+{
+
+}
+
+/*
  * Destructor: Closes the database.
 */
 DbManager::~DbManager()
