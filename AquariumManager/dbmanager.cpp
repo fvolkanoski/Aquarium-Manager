@@ -82,7 +82,9 @@ bool DbManager::insertUser(QString user, QString password)
 */
 std::vector <std::string> DbManager::getUserAquariums(QString &user)
 {
+    std::vector <std::string> userAquariums;
 
+    return userAquariums;
 }
 
 /*
