@@ -6,22 +6,76 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>251</width>
-    <height>131</height>
+    <width>367</width>
+    <height>96</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Register</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#RegisterDialog
+   <string notr="true">QMainWindow
 {
-	background-color: qlineargradient(spread:pad, x1:0.556818, 										  y1:1, x2:0.511364, y2:0, stop:0 rgba(0, 										  201, 255, 255), stop:1 rgba(171, 234, 255, 									  255));
+	
+	background-color: #ebebeb;
 }
-</string>
+
+QLineEdit
+{
+	border: none;
+	border-bottom: 1px solid gray;
+	background-color: rgba( 255, 255, 255, 0% );
+	
+}
+
+QPushButton
+{
+	background-color: #59bdff;
+	border: none;
+	color: white;
+}
+
+QPushButton::hover
+{
+	background-color: #70c6ff;
+	border: none;
+	color: white;
+}
+
+QPushButton::pressed
+{
+	background-color: #17a3ff;
+	border: none;
+	color: white;
+}</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0" colspan="3">
+   <item row="0" column="0">
+    <widget class="QLabel" name="lbl_userIcon">
+     <property name="minimumSize">
+      <size>
+       <width>16</width>
+       <height>16</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16</width>
+       <height>16</height>
+      </size>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="res.qrc">:/res/res/man-user.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1" colspan="3">
     <widget class="QLineEdit" name="registerUserEdit">
      <property name="font">
       <font>
@@ -29,34 +83,43 @@
        <pointsize>10</pointsize>
       </font>
      </property>
-     <property name="styleSheet">
-      <string notr="true">#registerUserEdit
-{
-	border: 1px solid black;
-	border-radius: 5px;
-	padding: 5px;
-}</string>
-     </property>
      <property name="placeholderText">
       <string>User</string>
      </property>
     </widget>
    </item>
-   <item row="1" column="0" colspan="3">
+   <item row="1" column="0">
+    <widget class="QLabel" name="lbl_lockIcon">
+     <property name="minimumSize">
+      <size>
+       <width>16</width>
+       <height>16</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16</width>
+       <height>16</height>
+      </size>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="res.qrc">:/res/res/lock.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1" colspan="3">
     <widget class="QLineEdit" name="registerPasswordEdit">
      <property name="font">
       <font>
        <family>Calibri Light</family>
        <pointsize>10</pointsize>
       </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">#registerPasswordEdit
-{
-	border: 1px solid black;
-	border-radius: 5px;
-	padding: 5px;
-}</string>
      </property>
      <property name="inputMask">
       <string/>
@@ -72,7 +135,7 @@
      </property>
     </widget>
    </item>
-   <item row="2" column="0">
+   <item row="2" column="0" colspan="2">
     <spacer name="horizontalSpacer">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -85,7 +148,7 @@
      </property>
     </spacer>
    </item>
-   <item row="2" column="1">
+   <item row="2" column="2">
     <widget class="QPushButton" name="registerButton">
      <property name="minimumSize">
       <size>
@@ -99,28 +162,12 @@
        <pointsize>9</pointsize>
       </font>
      </property>
-     <property name="styleSheet">
-      <string notr="true">#registerButton
-{
-	border: none;
-	color: white;
-	background-color: rgba(103, 123, 255, 50);
-}
-#registerButton::hover
-{
-	background-color: rgba(103, 123, 255, 100);
-}
-#registerButton::pressed
-{
-	background-color: rgba(103, 123, 255, 255);
-}</string>
-     </property>
      <property name="text">
       <string>Register</string>
      </property>
     </widget>
    </item>
-   <item row="2" column="2">
+   <item row="2" column="3">
     <widget class="QPushButton" name="cancelButton">
      <property name="minimumSize">
       <size>
@@ -134,22 +181,6 @@
        <pointsize>9</pointsize>
       </font>
      </property>
-     <property name="styleSheet">
-      <string notr="true">#cancelButton
-{
-	border: none;
-	color: white;
-	background-color: rgba(103, 123, 255, 50);
-}
-#cancelButton::hover
-{
-	background-color: rgba(103, 123, 255, 100);
-}
-#cancelButton::pressed
-{
-	background-color: rgba(103, 123, 255, 255);
-}</string>
-     </property>
      <property name="text">
       <string>Cancel</string>
      </property>
@@ -157,6 +188,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
  <connections/>
 </ui>
