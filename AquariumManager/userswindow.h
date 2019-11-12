@@ -1,10 +1,13 @@
 #ifndef USERSWINDOW_H
 #define USERSWINDOW_H
 
+// Qt includes.
 #include <QMainWindow>
+#include <QCryptographicHash>
 
+// Project includes.
+#include "dbmanager.h"
 #include "aquariumswindow.h"
-#include "registerdialog.h"
 
 namespace Ui
 {
@@ -23,10 +26,13 @@ private slots:
     void on_loginButton_clicked();
     void on_registerLink_linkActivated(const QString &link);
 
+    void on_registerLink_2_linkActivated(const QString &link);
+
+    void on_registerButton_clicked();
+
 private:
     Ui::UsersWindow *ui;
     AquariumsWindow *aquariumsWindow;
-    RegisterDialog *registerDialog;
 };
 
 #endif // USERSWINDOW_H

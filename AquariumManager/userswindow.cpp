@@ -4,6 +4,7 @@
 UsersWindow::UsersWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::UsersWindow)
 {
     ui->setupUi(this);
+    centralWidget()->layout()->setContentsMargins(0, 0, 0, 0);
 }
 
 UsersWindow::~UsersWindow()
@@ -56,6 +57,40 @@ void UsersWindow::on_loginButton_clicked()
 */
 void UsersWindow::on_registerLink_linkActivated(const QString &link)
 {
-    registerDialog = new RegisterDialog();
-    registerDialog->exec();
+    ui->stackedWidget->setCurrentIndex(1);
+}
+
+void UsersWindow::on_registerLink_2_linkActivated(const QString &link)
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+/*
+ * When the user clicks the Register, we call the dbmanager
+ * to insert a new user into the database.
+*/
+void UsersWindow::on_registerButton_clicked()
+{
+    // If the fields are blank, do nothing.
+    if(ui->registerUserEdit->text().size() > 0 && ui->registerPasswordEdit->text().size() > 0)
+    {
+        DbManager dbManager;
+
+        // Hash the password using sha256, and write the hash to the db.
+        // TODO: How do we prevent SQL injection, regex or what...?
+        if(dbManager.insertUser(ui->registerUserEdit->text(), QString(QCryptographicHash::hash((ui->registerPasswordEdit->text().toLocal8Bit()),QCryptographicHash::Sha256))))
+        {
+            QMessageBox registerInfoBox;
+            registerInfoBox.setText("User registered successfully!");
+            registerInfoBox.setIcon(QMessageBox::Icon::Information);
+            registerInfoBox.exec();
+        }
+        else
+        {
+            QMessageBox registerInfoBox;
+            registerInfoBox.setText("Error while registering user, please try again later.");
+            registerInfoBox.setIcon(QMessageBox::Icon::Critical);
+            registerInfoBox.exec();
+        }
+    }
 }

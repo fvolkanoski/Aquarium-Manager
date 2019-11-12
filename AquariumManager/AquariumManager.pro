@@ -28,19 +28,16 @@ SOURCES += \
         main.cpp \
         userswindow.cpp \
     dbmanager.cpp \
-    aquariumswindow.cpp \
-    registerdialog.cpp
+    aquariumswindow.cpp
 
 HEADERS += \
         userswindow.h \
     dbmanager.h \
-    aquariumswindow.h \
-    registerdialog.h
+    aquariumswindow.h
 
 FORMS += \
         userswindow.ui \
-    aquariumswindow.ui \
-    registerdialog.ui
+    aquariumswindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
