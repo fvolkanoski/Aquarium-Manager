@@ -13,7 +13,6 @@ AquariumsWindow::AquariumsWindow(QWidget *parent) : QMainWindow(parent), ui(new 
 void AquariumsWindow::takeData(QString user)
 {
     ui->lbl_welcomeText->setText("Welcome back, <b>" + user + "</b>!");
-
     // TODO: Get aquariums data.
 }
 
