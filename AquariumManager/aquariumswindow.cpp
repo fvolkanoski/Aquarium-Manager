@@ -10,9 +10,9 @@ AquariumsWindow::AquariumsWindow(QWidget *parent) : QMainWindow(parent), ui(new 
  * After the initialization of the form, this is the first function that
  * is called.
 */
-void AquariumsWindow::takeData(QString user)
+void AquariumsWindow::takeData(User user)
 {
-    ui->lbl_welcomeText->setText("Welcome back, <b>" + user + "</b>!");
+    ui->lbl_welcomeText->setText("Welcome back, <b>" + user.name + "</b>!");
     // TODO: Get aquariums data.
 }
 

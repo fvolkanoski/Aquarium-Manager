@@ -25,9 +25,7 @@ public:
 private slots:
     void on_loginButton_clicked();
     void on_registerLink_linkActivated(const QString &link);
-
     void on_registerLink_2_linkActivated(const QString &link);
-
     void on_registerButton_clicked();
 
 private:

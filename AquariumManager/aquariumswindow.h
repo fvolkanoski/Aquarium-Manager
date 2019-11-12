@@ -1,8 +1,12 @@
 #ifndef AQUARIUMSWINDOW_H
 #define AQUARIUMSWINDOW_H
 
+//Qt includes
 #include <QMainWindow>
 #include <QMessageBox>
+
+// Project includes
+#include "dbmanager.h"
 
 namespace Ui
 {
@@ -15,7 +19,7 @@ class AquariumsWindow : public QMainWindow
 
 public:
     explicit AquariumsWindow(QWidget *parent = nullptr);
-    void takeData(QString user);
+    void takeData(User user);
     ~AquariumsWindow();
 
 private:

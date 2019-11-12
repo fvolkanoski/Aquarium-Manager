@@ -21,16 +21,16 @@ UsersWindow::~UsersWindow()
 void UsersWindow::on_loginButton_clicked()
 {
     DbManager dbManager;
-    std::pair <bool, std::pair<QString, QString>> currentUser = dbManager.getUserInfo(ui->userInputEdit->text());
+    std::pair <bool, User> currentUser = dbManager.getUserInfo(ui->userInputEdit->text());
 
 
     if(currentUser.first) // User has been found.
     {
-        if(currentUser.second.second == QString(QCryptographicHash::hash((ui->passwordInputEdit->text().toLocal8Bit()), QCryptographicHash::Sha256))) // User and password is correct, we can log in.
+        if(currentUser.second.password == QString(QCryptographicHash::hash((ui->passwordInputEdit->text().toLocal8Bit()), QCryptographicHash::Sha256))) // User and password is correct, we can log in.
         {
             aquariumsWindow = new AquariumsWindow();
             aquariumsWindow->show();
-            aquariumsWindow->takeData(currentUser.second.first);
+            aquariumsWindow->takeData(currentUser.second);
             UsersWindow::close();
         }
         else
@@ -72,13 +72,13 @@ void UsersWindow::on_registerLink_2_linkActivated(const QString &link)
 void UsersWindow::on_registerButton_clicked()
 {
     // If the fields are blank, do nothing.
-    if(ui->registerUserEdit->text().size() > 0 && ui->registerPasswordEdit->text().size() > 0)
+    if(ui->registerUserEdit->text().size() > 0 && ui->registerPasswordEdit->text().size() > 0 && ui->registerNameEdit->text().size() > 0)
     {
         DbManager dbManager;
 
         // Hash the password using sha256, and write the hash to the db.
         // TODO: How do we prevent SQL injection, regex or what...?
-        if(dbManager.insertUser(ui->registerUserEdit->text(), QString(QCryptographicHash::hash((ui->registerPasswordEdit->text().toLocal8Bit()),QCryptographicHash::Sha256))))
+        if(dbManager.insertUser(ui->registerNameEdit->text(), ui->registerUserEdit->text(), QString(QCryptographicHash::hash((ui->registerPasswordEdit->text().toLocal8Bit()),QCryptographicHash::Sha256))))
         {
             QMessageBox registerInfoBox;
             registerInfoBox.setText("User registered successfully!");

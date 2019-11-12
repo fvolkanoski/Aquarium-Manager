@@ -26,12 +26,12 @@ DbManager::DbManager()
  * If the requested user has been found in the database the bool will be true and the pair will be
  * populated with data, if the user has not been found the bool will be false and the pair will be empty.
 */
-std::pair <bool, std::pair <QString, QString>> DbManager::getUserInfo(const QString &user)
+std::pair <bool, User> DbManager::getUserInfo(const QString &user)
 {
     QSqlQuery query;
     query.prepare("SELECT * FROM users WHERE user = (:user)");
     query.bindValue(":user", user);
-    std::pair <bool, std::pair <QString, QString>> returnUser;
+    std::pair <bool, User> returnUser;
 
     // Set the found bool value false at start, so ONLY if we find a user this value will change.
     returnUser.first = false;
@@ -42,8 +42,9 @@ std::pair <bool, std::pair <QString, QString>> DbManager::getUserInfo(const QStr
         // so the query should not return more than one result.
         if(query.next())
         {
-            returnUser.second.first = query.value(1).toString(); // User
-            returnUser.second.second = query.value(2).toString(); // Password
+            returnUser.second.username = query.value(1).toString(); // Username
+            returnUser.second.password = query.value(2).toString(); // Password
+            returnUser.second.name = query.value(3).toString(); // Name
             returnUser.first = true;
         }
     }
@@ -59,12 +60,13 @@ std::pair <bool, std::pair <QString, QString>> DbManager::getUserInfo(const QStr
  * Inserts a user into the database, if the insert has been successfull
  * returns true, if not returns false.
 */
-bool DbManager::insertUser(QString user, QString password)
+bool DbManager::insertUser(QString name, QString user, QString password)
 {
     QSqlQuery query;
-    query.prepare("INSERT INTO users (user, password) VALUES (:user, :password)");
+    query.prepare("INSERT INTO users (user, password, name) VALUES (:user, :password, :name)");
     query.bindValue(":user", user);
     query.bindValue(":password", password);
+    query.bindValue(":name", name);
 
     if(query.exec())
     {
