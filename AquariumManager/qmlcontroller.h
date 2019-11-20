@@ -13,8 +13,9 @@ class QmlController : public QObject
 public:
     explicit QmlController(QObject *parent = nullptr);
 
-    Q_INVOKABLE void registerUser(QString name, QString username, QString password);
+    Q_INVOKABLE bool registerUser(QString name, QString username, QString password);
     Q_INVOKABLE bool loginUser(QString username, QString password);
+    Q_INVOKABLE QString returnLoggedInName();
 
 signals:
 
@@ -22,6 +23,8 @@ public slots:
 
 private:
     DbManager m_dbManager;
+    bool m_userLoggedIn;
+    User m_currentLoggedInUser;
 };
 
 #endif // QMLCONTROLLER_H

@@ -2,14 +2,14 @@
 
 QmlController::QmlController(QObject *parent) : QObject(parent)
 {
-
+    m_userLoggedIn = false;
 }
 
-void QmlController::registerUser(QString name, QString username, QString password)
+bool QmlController::registerUser(QString name, QString username, QString password)
 {
     User registerUser(name, username, password);
 
-    m_dbManager.insertUser(name, username, QString(QCryptographicHash::hash(password.toLocal8Bit(), QCryptographicHash::Sha256)));
+    return m_dbManager.insertUser(name, username, QString(QCryptographicHash::hash(password.toLocal8Bit(), QCryptographicHash::Sha256)));
 }
 
 bool QmlController::loginUser(QString username, QString password)
@@ -21,14 +21,13 @@ bool QmlController::loginUser(QString username, QString password)
         if(currentUser.second.password == QString(QCryptographicHash::hash(password.toLocal8Bit(), QCryptographicHash::Sha256))) // User and password is correct, we can log in.
         {
             // Log in user...
-            qDebug() << "true";
+            m_userLoggedIn = true;
+            m_currentLoggedInUser = currentUser.second;
             return true;
 
         }
         else
         {
-            // Invalid password...
-
             return false;
         }
     }
@@ -38,4 +37,9 @@ bool QmlController::loginUser(QString username, QString password)
 
         return false;
     }
+}
+
+QString QmlController::returnLoggedInName()
+{
+    return m_currentLoggedInUser.name;
 }

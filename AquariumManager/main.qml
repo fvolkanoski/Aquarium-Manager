@@ -19,6 +19,8 @@ Window
 
     SwipeView
     {
+        property string loggedInName: ""
+
         id: mainWindowView
         anchors.fill: parent
         currentIndex: 1
@@ -27,6 +29,14 @@ Window
         Item
         {
             id: loggedInPage
+
+            Text
+            {
+                id: nameText
+                x: parent.width - ((5 * text.length) + 5)
+                y: 5
+                text: mainWindowView.loggedInName
+            }
         }
 
         Item
@@ -177,6 +187,7 @@ Window
                     if(qmlCtrl.loginUser(usernameInputLogin.text, passwordInputLogin.text))
                     {
                         mainWindowView.currentIndex = 0
+                        mainWindowView.loggedInName = "Welcome back, " + qmlCtrl.returnLoggedInName() + "!"
                     }
                 }
             }
@@ -361,13 +372,63 @@ Window
                 }
             }
 
+            Popup
+            {
+                property string popupText: ""
+
+                id: registerPopup
+                x: (parent.width / 2) - 100
+                y: (parent.height / 2) - 65
+                width: 200
+                height: 130
+                modal: true
+                focus: true
+                closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
+
+                Text
+                {
+                    id: registerPopupText
+                    text: registerPopup.popupText
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    y: parent.y + 10
+                }
+
+                Button
+                {
+                    id: registerPopupButton
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    y: parent.height - 40
+                    text: "Ok"
+                    onClicked: registerPopup.close()
+                }
+            }
+
             Button
             {
                 id: registerButton
                 anchors.horizontalCenter: parent.horizontalCenter
                 y: mainWindow.height - 70
                 text: "Register"
-                onClicked: qmlCtrl.registerUser(nameInputRegister.text, usernameInputRegister.text, passwordInputRegister.text)
+                onClicked:
+                {
+                    if(qmlCtrl.registerUser(nameInputRegister.text,
+                                            usernameInputRegister.text,
+                                            passwordInputRegister.text))
+                    {
+                        nameInputRegister.text = ""
+                        usernameInputRegister.text = ""
+                        passwordInputRegister.text = ""
+
+                        registerPopup.popupText = "Registered successfully!"
+                        registerPopup.open()
+                    }
+                    else
+                    {
+                        registerPopup.popupText = "Error! Please try again later."
+                        registerPopup.open()
+                    }
+
+                }
             }
 
             Text
