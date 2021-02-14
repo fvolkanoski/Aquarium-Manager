@@ -1,9 +1,6 @@
 <RCC>
     <qresource prefix="/">
-        <file>res/avatar.png</file>
         <file>res/lock.png</file>
-        <file>res/logo.png</file>
-        <file>res/man-user.png</file>
         <file>res/menu-button-of-three-horizontal-lines.png</file>
     </qresource>
 </RCC>
