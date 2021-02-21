@@ -34,7 +34,6 @@ bool QmlController::loginUser(QString username, QString password)
     else
     {
         // User not found...
-
         return false;
     }
 }
