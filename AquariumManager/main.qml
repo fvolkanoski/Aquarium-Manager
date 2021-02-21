@@ -83,7 +83,7 @@ Window
                     {
                         id: usernameInputLogin
                         text: ""
-                        Layout.preferredWidth: mainWindow.width - 60
+                        Layout.preferredWidth: mainWindow.width - 10
                         font.family: "Calibri"
                         font.pointSize: 10
                         color: "white"
@@ -94,7 +94,7 @@ Window
                         Rectangle
                         {
                             height: parent.height + 5
-                            width: parent.width - 30
+                            width: parent.width
                             anchors.horizontalCenter: mainWindow.horizontalCenter
                             z: -1
                             color: "transparent"
@@ -169,6 +169,10 @@ Window
                         mainWindowView.currentIndex = 0
                         mainWindowView.loggedInName = "Welcome back, " + qmlCtrl.returnLoggedInName() + "!"
                     }
+                    else
+                    {
+                        popup.open()
+                    }
                 }
             }
 
@@ -190,10 +194,58 @@ Window
                     }
                 }
             }
+
+            Popup {
+                id: popup
+                anchors.centerIn: parent
+                width: mainWindow.width - 50
+                height: 100
+                modal: true
+                focus: true
+                closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
+
+                contentItem:
+                    ColumnLayout {
+                        RowLayout {
+                            Item {
+                                width: 15
+                            }
+
+                            Text {
+                                text: "Wrong username/password!"
+                            }
+                        }
+                        RowLayout {
+                            Item {
+                                width: 35
+                            }
+
+                            Button {
+                                text: "Ok"
+
+                                onClicked: {
+                                    popup.close()
+                            }
+                        }
+                    }
+                }
+
+            }
         }
         Item
         {
             id: registerPage
+
+            Image
+            {
+                id: logoRegister
+                width: 70
+                height: 70
+                anchors.horizontalCenter: parent.horizontalCenter
+                y: 30
+                source: "qrc:///res/lock.png"
+                mipmap: true
+            }
 
             ColumnLayout
             {
@@ -203,139 +255,117 @@ Window
 
                 ColumnLayout
                 {
-                    Text
-                    {
-                        id: nameInputTextRegister
-                        text: qsTr("Name: ")
-                        font.family: "Calibri"
-                        font.pointSize: 10
-                    }
-
                     TextInput
                     {
                         id: nameInputRegister
                         text: ""
                         Layout.preferredWidth: mainWindow.width - 10
                         font.family: "Calibri"
-                        font.pointSize: 11
+                        font.pointSize: 10
+                        color: "white"
+                        padding: 0.5
+                        topPadding: 4
+                        leftPadding: 4
 
                         Rectangle
                         {
-                            height: parent.height
-                            width: mainWindow.width - 10
+                            height: parent.height + 5
+                            width: parent.width
+                            anchors.horizontalCenter: mainWindow.horizontalCenter
                             z: -1
-
-                            CustomBorder
-                            {
-                                commonBorder: false
-                                lBorderwidth: 0
-                                rBorderwidth: 0
-                                tBorderwidth: 0
-                                bBorderwidth: 1
-                                borderColor: "black"
-                            }
+                            color: "transparent"
+                            border.width: 1
+                            border.color: "white"
                         }
 
                         Text
                         {
                             text: "Enter your name."
-                            color: "#aaa"
+                            color: "white"
                             visible: !nameInputRegister.text
+                            anchors.horizontalCenter: mainWindow.horizontalCenter
                             font.family: "Calibri"
-                            font.pointSize: 11
+                            font.pointSize: 10
+                            topPadding: 4
+                            leftPadding: 4
                         }
                     }
                 }
 
                 ColumnLayout
                 {
-                    Text
-                    {
-                        id: usernameInputTextRegister
-                        text: qsTr("Username: ")
-                        font.family: "Calibri"
-                        font.pointSize: 10
-                    }
-
                     TextInput
                     {
                         id: usernameInputRegister
                         text: ""
                         Layout.preferredWidth: mainWindow.width - 10
                         font.family: "Calibri"
-                        font.pointSize: 11
+                        font.pointSize: 10
+                        color: "white"
+                        padding: 0.5
+                        topPadding: 4
+                        leftPadding: 4
 
                         Rectangle
                         {
-                            height: parent.height
-                            width: mainWindow.width - 10
+                            height: parent.height + 5
+                            width: parent.width
+                            anchors.horizontalCenter: mainWindow.horizontalCenter
                             z: -1
-
-                            CustomBorder
-                            {
-                                commonBorder: false
-                                lBorderwidth: 0
-                                rBorderwidth: 0
-                                tBorderwidth: 0
-                                bBorderwidth: 1
-                                borderColor: "black"
-                            }
+                            color: "transparent"
+                            border.width: 1
+                            border.color: "white"
                         }
 
                         Text
                         {
                             text: "Enter your username."
-                            color: "#aaa"
+                            color: "white"
                             visible: !usernameInputRegister.text
+                            anchors.horizontalCenter: mainWindow.horizontalCenter
                             font.family: "Calibri"
-                            font.pointSize: 11
+                            font.pointSize: 10
+                            topPadding: 4
+                            leftPadding: 4
                         }
                     }
                 }
 
                 ColumnLayout
                 {
-                    Text
-                    {
-                        id: passwordInputTextRegister
-                        text: qsTr("Password: ")
-                        font.family: "Calibri"
-                        font.pointSize: 10
-                    }
-
                     TextInput
                     {
                         id: passwordInputRegister
                         text: ""
                         Layout.preferredWidth: mainWindow.width - 10
                         font.family: "Calibri"
-                        font.pointSize: 11
-                        echoMode: TextInput.Password;
+                        font.pointSize: 10
+                        color: "white"
+                        padding: 0.5
+                        topPadding: 4
+                        leftPadding: 4
 
                         Rectangle
                         {
-                            height: parent.height
-                            width: mainWindow.width - 10
+                            height: parent.height + 5
+                            width: parent.width
+                            anchors.horizontalCenter: mainWindow.horizontalCenter
                             z: -1
-
-                            CustomBorder
-                            {
-                                commonBorder: false
-                                lBorderwidth: 0
-                                rBorderwidth: 0
-                                tBorderwidth: 0
-                                bBorderwidth: 1
-                                borderColor: "black"
-                            }
+                            color: "transparent"
+                            border.width: 1
+                            border.color: "white"
                         }
 
                         Text
                         {
                             text: "Enter your password."
-                            color: "#aaa"
+                            color: "white"
                             visible: !passwordInputRegister.text
+                            anchors.horizontalCenter: mainWindow.horizontalCenter
                             font.family: "Calibri"
-                            font.pointSize: 11
+                            font.pointSize: 10
+                            topPadding: 4
+                            leftPadding: 4
                         }
                     }
                 }
@@ -404,7 +434,7 @@ Window
             {
                 id: loginText
                 text: "Already have an account? Login here!"
-                color: "#006691"
+                color: "white"
                 anchors.horizontalCenter: parent.horizontalCenter
                 y: mainWindow.height - 20
 
